@@ -1,4 +1,4 @@
-# HackMyVM — Grenade
+# HackMyVM — TellMe
 
 **Difficulty:** Medium  
 **OS:** Linux (Ubuntu 24.04 / Docker containers)  
@@ -46,7 +46,7 @@ http://172.20.10.3:8500/ui/dc1/kv/mysql/config/root_pass/edit
 ```
 
 **Value:** `TellMeYouLoveMe`
-
+![alt text](image.png)
 ---
 
 ## 2. Initial Access — CVE-2026-24061 (Telnetd Auth Bypass)
