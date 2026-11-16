@@ -29,11 +29,6 @@ PORT    STATE SERVICE  VERSION
 443/tcp open  ssl/http Apache httpd 2.4.67 ((Debian))
 ```
 
-Hostname: `grenade.hmv`
-
-```bash
-echo "172.20.10.3 grenade.hmv" >> /etc/hosts
-```
 
 ---
 
