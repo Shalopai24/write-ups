@@ -329,11 +329,7 @@ root@opacity:~# cat proof.txt
 
 nc -lvnp 4445 — root shell
 
-![Root shell](/mnt/user-data/uploads/1795404090231_image.png)
 
-📸 Screenshot 6 — Root shell received
-
-📸 Screenshot 6 — Root shell drops in; `cat proof.txt` for the flag
 
 🏁
 
